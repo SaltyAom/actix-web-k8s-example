@@ -31,6 +31,6 @@ cd src
 Match `name` in `cargo.toml` and Dockerfile by replacing `hello-actix` with your package name.
 
 ### Note
-- Image is 2.41MB
+- Image is 611.1 KB
 - Build stage using `rust-alpine`.
-- Build time is around 10-15 minute on MacBook Pro 2019 (i5 1.4GHz model).
+- Build time is around 5 minute on Ryzen 5 3500X, 16GB DDR4 3266MHZ
