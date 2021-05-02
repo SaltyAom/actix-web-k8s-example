@@ -12,7 +12,7 @@ WORKDIR /usr/src/hello-actix
 
 COPY Cargo.toml Cargo.lock ./
 
-RUN RUSTFLAGS='-C link-arg=-s -C target-cpu=native' cargo build --release
+RUN RUSTFLAGS='-C target-cpu=native' cargo build --release
 
 # Build project
 COPY src ./src
