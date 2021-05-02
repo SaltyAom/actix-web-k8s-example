@@ -23,11 +23,23 @@ ENV PKG_CONFIG_ALLOW_CROSS=1
 
 RUN cargo install --target x86_64-unknown-linux-musl --path .
 
-# --- Up and running ---
-FROM alpine:3.13
+# --- Compression ---
+FROM alpine:3.13 AS compressor
+WORKDIR /usr/app
+
+RUN apk add --no-cache upx
 
 COPY --from=builder /usr/local/cargo/bin/hello-actix .
+
+RUN upx hello-actix -9 -o app
+
+# --- Up and running ---
+# FROM alpine:3.13
+FROM scratch
+
+COPY --from=compressor /usr/app/app .
 # COPY static ./static
 
-CMD ["./hello-actix"]
 EXPOSE 8080
+
+CMD ["./app"]
