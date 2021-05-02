@@ -28,6 +28,6 @@ cd src
 ```
 
 ### Note
-- Docker Build image is about 15MB using alpine.
+- Image is 2.98MB
 - Build stage using `rust-alpine`.
 - Build time is around 10-15 minute on MacBook Pro 2019 (i5 1.4GHz model).
